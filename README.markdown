@@ -1,4 +1,6 @@
-#gitwatch
+#gitwatch-cron
+
+Forked from .gitwatch - removed a couple of options / features, that let this be run via cron.
 
 A bash script to watch a file or folder and commit changes to a git repo
 
