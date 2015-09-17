@@ -168,10 +168,8 @@ else
     PUSH_CMD="" # if not remote is selected, make sure push command is empty
 fi
 
-# main program loop: wait for changes and commit them
-while true; do
+# Main program execution. Run it
     $INCOMMAND # wait for changes
-    sleep $SLEEP_TIME # wait some more seconds to give apps time to write out all changes
     if [ -n "$DATE_FMT" ]; then
         FORMATTED_COMMITMSG="$(sed "s/%d/$(date "$DATE_FMT")/" <<< "$COMMITMSG")" # splice the formatted date-time into the commit message
     fi
@@ -180,5 +178,4 @@ while true; do
     $GIT commit $GIT_COMMIT_ARGS -m"$FORMATTED_COMMITMSG" # construct commit message and commit
 
     if [ -n "$PUSH_CMD" ]; then $PUSH_CMD; fi
-done
 
