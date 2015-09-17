@@ -1,7 +1,20 @@
 #gitwatch-cron
 
-Forked from .gitwatch - removed a couple of options / features, that let this be run via cron.
+Forked from .gitwatch.
 
+Removed some options, that let this script be executed via cron, which I found was a simpler way to run this
+
+### Example Usage
+Edit your crontab to include the following:
+
+`crontab -e`
+`# Backup our system every 20 minutes
+*/5 * * * * /root/repositories/gitwatch-cron/gitwatch.sh -p origin -b master '/var/www/ghost/content/'`
+
+And wha-la! You now will have a backup of your ghost blog (or whatever you want) regularly :)
+
+
+### Original Readme Below:
 A bash script to watch a file or folder and commit changes to a git repo
 
 ##What to use it for?
